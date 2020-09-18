@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: upgrading the ubuntu
+      shell: apt upgrade
+    - name: installing nginx server
+      apt: name=nginx state=present
+    - name: starting nginx service
+      shell: service start nginx
